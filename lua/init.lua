@@ -9,7 +9,6 @@
 ---@type Args
 local args = ...
 
-
 vim.g.neovide_channel_id = args.neovide_channel_id
 
 -- Set some basic rendering options.
@@ -103,6 +102,255 @@ local function unlink_highlight(name)
     vim.api.nvim_set_hl(0, name, highlight)
 end
 
+local lazypath = vim.fn.stdpath("data") .."/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable",
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+vim.g.mapleader = " "
+require("lazy").setup({
+	-- File browsing tree
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+			"3rd/image.nvim"
+		}
+	},
+	-- theme
+	{
+		"catppuccin/nvim",
+		as = "catppuccin",
+		priority = 1000
+	},
+	
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+
+	"neovim/nvim-lspconfig",
+	"simrat39/rust-tools.nvim",
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lsp-signature-help",
+	"hrsh7th/cmp-vsnip",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/vim-vsnip",
+	"nvim-treesitter/nvim-treesitter",
+	"voldikss/vim-floaterm",
+	"lewis6991/impatient.nvim",
+	{
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		config = function()
+			require("dashboard").setup {
+				theme = "hyper",
+				config = {
+					week_header = {
+						enable = true,
+					},
+					shortcut = {
+						{ 
+							desc = "󰊳  Update", 
+							group = "@property", 
+							action = "Lazy update", 
+							key = "u" 
+						},
+						{
+							icon = " ",
+							icon_hl = "@variable",
+							desc = "Files",
+							group = "Label",
+							action = "Telescope find_files",
+							key = "f",
+						},
+						{
+							desc = " Apps",
+							group = "DiagnosticHint",
+							action = "Telescope app",
+							key = "a",
+						},
+						{
+							desc = " dotfiles",
+							group = "Number",
+							action = "Telescope dotfiles",
+							key = "d",
+						},
+					},
+				},
+			}
+		end,
+		dependencies = { {"nvim-tree/nvim-web-devicons" } }
+	},
+	"pocco81/auto-save.nvim",
+})
+
+vim.keymap.set("n", "<leader>ft", ":FloaterNew --name=myfloat --height=0.8 --autoclose=2 fish <CR> ")
+vim.keymap.set("n", "t", ":FloatermToggle myfloat<CR>")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>:q<CR>")
+
+local lspconfig = require("lspconfig")
+lspconfig.rust_analyzer.setup {}
+
+require("mason").setup({
+	ui = {
+		icons = {
+			package_installed = "",
+			package_pending = "",
+			package_inuninstalled = "",
+		},
+	}
+})
+require("mason-lspconfig").setup()
+
+require("nvim-treesitter.configs").setup {
+	ensure_installed = { "lua", "rust", "toml" },
+	auto_install = true,
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+	ident = { 
+		enable = true 
+	},
+	rainbow = {
+		enable = true,
+		extended_mode = true,
+		max_file_lines = nil,
+	}
+}
+
+vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
+vim.opt.shortmess = vim.opt.shortmess + { c = true }
+vim.api.nvim_set_option("updatetime", 300)
+
+vim.g.floaterm_title = "≽^•⩊•^≼"
+vim.g.floaterm_wintype = "Float"
+vim.g.floaterm_position = "bottom"
+vim.g.floaterm_width = 0.99999
+vim.g.floaterm_height = 0.25
+
+local cmp = require("cmp")
+cmp.setup({
+	snippet = {
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body)
+		end,
+	},
+	mapping = {
+		["<C-p>"] = cmp.mapping.select_prev_item(),
+		["<C-n>"] = cmp.mapping.select_next_item(),
+		["<S-Tab>"] = cmp.mapping.select_prev_item(),
+		["<Tab>"] = cmp.mapping.select_next_item(),
+		["<C-S-f>"] = cmp.mapping.scroll_docs(-4),
+		["<C-f>"] = cmp.mapping.scroll_docs(4),
+		["<C-Space>"] = cmp.mapping.complete(),
+		["<C-e>"] = cmp.mapping.close(),
+		["<CR>"] = cmp.mapping.confirm({
+			behavior = cmp.ConfirmBehavior.Insert,
+			select = true,
+		})
+	},
+	sources = {
+		{ name = "path" },
+		{ name = "nvim_lsp", keyword_length = 3 },
+		{ name = "nvim_lsp_signature_help"},
+		{ name = "nvim_lua", keyword_length = 2 },
+		{ name = "buffer", keyword_length = 2 },
+		{ name = "vsnip", keyword_length = 2 },
+		{ name = "calc" },
+	},
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
+	formatting = {
+		fields = { "menu", "abbr", "kind"},
+		format = function(entry, item)
+			local menu_icon = {
+				nvim_lsp = "λ",
+				vsnip = "⋗",
+				buffer = "Ω",
+				path = "🖫",
+			}
+			item.menu = menu_icon[entry.source.name]
+			return item
+		end,
+	},
+})
+
+local rt = require("rust-tools")
+rt.setup({
+	server = {
+		on_attach = function(_, bufnr)
+			vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, {buffer = bufnr })
+			vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, {buffer = bufnr })
+		end,
+	},
+})
+
+
+local sign = function(opts)
+	vim.fn.sign_define(opts.name, {
+		texthl = opts.name,
+		text = opts.text,
+		numhl = ""
+	})
+end
+sign({name = "DiagnosticsSignError", text = ""})
+sign({name = "DiagnosticSignWarn", text = ""})
+sign({name = "DiagnosticSignHint", text = ""})
+sign({name = "DiagnosticsSignInfo", text = ""})
+vim.diagnostic.config({
+	virtual_text = false,
+	signs = true,
+	update_in_insert = true,
+	underline = true,
+	severity_sort = false,
+	float = {
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+})
+vim.cmd([[
+set signcolumn=yes
+autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+]]
+)
+
+require("catppuccin").setup({
+	integrations = {
+		neotree = true
+	}
+})
+
+local alpha = function()
+	return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
+end
+
+vim.cmd.colorscheme "catppuccin"
+vim.g.neovide_transparency = 0.3
+vim.g.transparency = 0.8
+vim.g.neovide_background_color = "#0f1117" .. alpha()
+vim.g.neovide_theme = "catppuccin"
+vim.g.neovide_remember_window_size = true
+vim.g.neovide_cursor_vfx_mode = "wireframe"
+
+vim.wo.number = true
+
 -- Neovim only reports the final highlight group in the ext_hlstate information
 -- So we need to unlink all the groups when the color scheme is changed
 -- This is quite hacky, so let the user disable it.
@@ -116,6 +364,7 @@ vim.api.nvim_create_autocmd({ "ColorScheme" }, {
             unlink_highlight("FloatBorder")
             unlink_highlight("WinBar")
             unlink_highlight("WinBarNC")
-        end
     end
+end
 })
+
