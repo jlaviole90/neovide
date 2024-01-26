@@ -200,16 +200,6 @@ vim.keymap.set("n", "<leader>ft", ":FloaterNew --name=myfloat --height=0.8 --aut
 vim.keymap.set("n", "t", ":FloatermToggle myfloat<CR>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>:q<CR>")
 
-local lspconfig = require("lspconfig")
-lspconfig.rust_analyzer.setup {}
-lspconfig.gopls.setup {}
-lspconfig.biome.setup {}
-lspconfig.golangci_lint_ls.setup {}
-lspconfig.grammarly.setup {}
-lspconfig.java_language_server.setup {}
-lspconfig.jsonls.setup {}
-lspconfig.quick_lint_js.setup {}
-
 require("mason").setup({
 	ui = {
 		icons = {
@@ -219,7 +209,19 @@ require("mason").setup({
 		},
 	}
 })
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup({
+	automatic_installation = true
+})
+
+local lspconfig = require("lspconfig")
+lspconfig.rust_analyzer.setup {}
+lspconfig.gopls.setup {}
+lspconfig.biome.setup {}
+lspconfig.golangci_lint_ls.setup {}
+lspconfig.grammarly.setup {}
+lspconfig.java_language_server.setup {}
+lspconfig.jsonls.setup {}
+lspconfig.quick_lint_js.setup {}
 
 require("nvim-treesitter.configs").setup {
 	ensure_installed = { "lua", "rust", "toml" },
