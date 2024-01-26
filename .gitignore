@@ -1,5 +1,6 @@
-/target
-/target-ubuntu
+/target/debug
+/target/.rustc_info.json
+/target/CACHEDIR.TAG
 /.vs
 **/*.rs.bk
 *.log

@@ -1,0 +1,11 @@
+C:\Users\theba\Desktop\neovide\neovide\target\release\deps\libgetrandom-60b11128c5abe984.rmeta: C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\lib.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\error.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\util.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\error_impls.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\windows.rs
+
+C:\Users\theba\Desktop\neovide\neovide\target\release\deps\libgetrandom-60b11128c5abe984.rlib: C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\lib.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\error.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\util.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\error_impls.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\windows.rs
+
+C:\Users\theba\Desktop\neovide\neovide\target\release\deps\getrandom-60b11128c5abe984.d: C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\lib.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\error.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\util.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\error_impls.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\windows.rs
+
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\lib.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\error.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\util.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\error_impls.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\getrandom-0.1.16\src\windows.rs:

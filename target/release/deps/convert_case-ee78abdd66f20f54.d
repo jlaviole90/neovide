@@ -1,0 +1,11 @@
+C:\Users\theba\Desktop\neovide\neovide\target\release\deps\libconvert_case-ee78abdd66f20f54.rmeta: C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\lib.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\case.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\converter.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\pattern.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\segmentation.rs
+
+C:\Users\theba\Desktop\neovide\neovide\target\release\deps\libconvert_case-ee78abdd66f20f54.rlib: C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\lib.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\case.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\converter.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\pattern.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\segmentation.rs
+
+C:\Users\theba\Desktop\neovide\neovide\target\release\deps\convert_case-ee78abdd66f20f54.d: C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\lib.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\case.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\converter.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\pattern.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\segmentation.rs
+
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\lib.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\case.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\converter.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\pattern.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\convert_case-0.6.0\src\segmentation.rs:

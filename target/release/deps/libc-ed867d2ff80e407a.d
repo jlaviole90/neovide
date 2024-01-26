@@ -1,0 +1,11 @@
+C:\Users\theba\Desktop\neovide\neovide\target\release\deps\liblibc-ed867d2ff80e407a.rmeta: C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\lib.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\macros.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\fixed_width_ints.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\windows\mod.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\windows\msvc\mod.rs
+
+C:\Users\theba\Desktop\neovide\neovide\target\release\deps\liblibc-ed867d2ff80e407a.rlib: C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\lib.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\macros.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\fixed_width_ints.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\windows\mod.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\windows\msvc\mod.rs
+
+C:\Users\theba\Desktop\neovide\neovide\target\release\deps\libc-ed867d2ff80e407a.d: C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\lib.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\macros.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\fixed_width_ints.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\windows\mod.rs C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\windows\msvc\mod.rs
+
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\lib.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\macros.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\fixed_width_ints.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\windows\mod.rs:
+C:\Users\theba\.cargo\registry\src\index.crates.io-6f17d22bba15001f\libc-0.2.150\src\windows\msvc\mod.rs:
