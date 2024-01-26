@@ -202,6 +202,13 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>:q<CR>")
 
 local lspconfig = require("lspconfig")
 lspconfig.rust_analyzer.setup {}
+lspconfig.gopls.setup {}
+lspconfig.biome.setup {}
+lspconfig.golangci_lint_ls.setup {}
+lspconfig.grammarly.setup {}
+lspconfig.java_language_server.setup {}
+lspconfig.jsonls.setup {}
+lspconfig.quick_lint_js.setup {}
 
 require("mason").setup({
 	ui = {
@@ -338,11 +345,11 @@ require("catppuccin").setup({
 })
 
 local alpha = function()
-	return string.format("%x", math.floor(255 * vim.g.transparency or 0.8))
+	return string.format("%x", math.floor(255 * vim.g.transparency or 1))
 end
 
 vim.cmd.colorscheme "catppuccin"
-vim.g.neovide_transparency = 0.3
+vim.g.neovide_transparency = 0.9
 vim.g.transparency = 0.8
 vim.g.neovide_background_color = "#0f1117" .. alpha()
 vim.g.neovide_theme = "catppuccin"
