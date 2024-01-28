@@ -117,6 +117,7 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = " "
 require("lazy").setup({
+
 	-- File browsing tree
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -128,6 +129,10 @@ require("lazy").setup({
 			"3rd/image.nvim"
 		}
 	},
+
+	-- highlighting and indexing functions
+	"nvim-treesitter/nvim-treesitter",
+
 	-- theme
 	{
 		"catppuccin/nvim",
@@ -135,21 +140,40 @@ require("lazy").setup({
 		priority = 1000
 	},
 	
+	-- lsp
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
-
 	"neovim/nvim-lspconfig",
 	"simrat39/rust-tools.nvim",
+
+	-- autocomplete engine
 	"hrsh7th/nvim-cmp",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lsp-signature-help",
 	"hrsh7th/cmp-vsnip",
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-buffer",
+
+	-- vscode snipped feature
 	"hrsh7th/vim-vsnip",
-	"nvim-treesitter/nvim-treesitter",
+
+	-- floating terminal
 	"voldikss/vim-floaterm",
+
+	-- speed up startup???
 	"lewis6991/impatient.nvim",
+
+	-- tabs
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			"lewis6991/gitsigns.nvim",
+			"nvim-tree/nvim-web-devicons",
+		},
+		init = function() vim.g.barbar_auto_setup = true end,
+	},
+
+	-- dashboard
 	{
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
@@ -200,6 +224,11 @@ vim.keymap.set("n", "<leader>ft", ":FloaterNew --name=myfloat --height=0.8 --aut
 vim.keymap.set("n", "t", ":FloatermToggle myfloat<CR>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>:q<CR>")
 
+vim.keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>")
+vim.keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>")
+vim.keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>")
+vim.keymap.set("n", "<A-z>", "<Cmd>BufferRestore<CR>")
+
 require("mason").setup({
 	ui = {
 		icons = {
@@ -224,7 +253,9 @@ lspconfig.jsonls.setup {}
 lspconfig.quick_lint_js.setup {}
 
 require("nvim-treesitter.configs").setup {
-	ensure_installed = { "lua", "rust", "toml" },
+	ensure_installed = {  
+		"lua", "rust", "java", "go", "cpp",
+	},
 	auto_install = true,
 	highlight = {
 		enable = true,
@@ -242,7 +273,7 @@ require("nvim-treesitter.configs").setup {
 
 vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
-vim.api.nvim_set_option("updatetime", 300)
+vim.api.nvim_set_option("updatetime", 750)
 
 vim.g.floaterm_title = "≽^•⩊•^≼"
 vim.g.floaterm_wintype = "Float"
@@ -273,7 +304,7 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "path" },
-		{ name = "nvim_lsp", keyword_length = 3 },
+		{ name = "nvim_lsp" },
 		{ name = "nvim_lsp_signature_help"},
 		{ name = "nvim_lua", keyword_length = 2 },
 		{ name = "buffer", keyword_length = 2 },
