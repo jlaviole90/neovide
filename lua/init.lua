@@ -173,6 +173,12 @@ require("lazy").setup({
 		init = function() vim.g.barbar_auto_setup = true end,
 	},
 
+	-- status line prettify
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" }
+	},
+
 	-- dashboard
 	{
 		"nvimdev/dashboard-nvim",
@@ -224,6 +230,7 @@ vim.keymap.set("n", "<leader>ft", ":FloaterNew --name=myfloat --height=0.8 --aut
 vim.keymap.set("n", "t", ":FloatermToggle myfloat<CR>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>:q<CR>")
 
+-- Change buffer mappings
 vim.keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>")
 vim.keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>")
 vim.keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>")
@@ -280,6 +287,10 @@ vim.g.floaterm_wintype = "Float"
 vim.g.floaterm_position = "bottom"
 vim.g.floaterm_width = 0.99999
 vim.g.floaterm_height = 0.25
+
+require("lualine").setup({
+	options = { theme = "ayu_mirage" }
+})
 
 local cmp = require("cmp")
 cmp.setup({
