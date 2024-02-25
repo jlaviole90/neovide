@@ -1,1 +1,0 @@
-cargo:rustc-env=EXAMPLES_PATH=C:\Users\theba\Desktop\neovide\neovide\target\release\build\nvim-rs-7f2dab3916620b46\out\../../../examples
