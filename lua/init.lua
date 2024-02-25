@@ -121,6 +121,7 @@ vim.g.mapleader = " "
 
 require("lazy").setup({
 
+	-- Misc
 	"nvim-treesitter/nvim-treesitter",
 	"lewis6991/impatient.nvim",
 	"pocco81/auto-save.nvim",
@@ -132,7 +133,7 @@ require("lazy").setup({
 		priority = 1000,
 	},
 
-	-- lsp
+	-- LSP
 	{
 		"neovim/nvim-lspconfig",
 		autoformat = true,
@@ -149,6 +150,7 @@ require("lazy").setup({
 			},
 		},
 	},
+	-- More LSP
 	"saadparwaiz1/cmp_luasnip",
 	"L3MON4D3/LuaSnip",
 	"williamboman/mason-lspconfig.nvim",
@@ -159,6 +161,7 @@ require("lazy").setup({
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-buffer",
 
+	-- LSP / autocomplete tools
 	"simrat39/rust-tools.nvim",
 	"pmizio/typescript-tools.nvim",
 	"folke/neodev.nvim",
@@ -185,16 +188,6 @@ require("lazy").setup({
 	"voldikss/vim-floaterm",
 
 	-- File browsing tree
-	--{
-	--	"nvim-neo-tree/neo-tree.nvim",
-	--	branch = "v3.x",
-	--	dependencies = {
-	--		"nvim-lua/plenary.nvim",
-	--		"nvim-tree/nvim-web-devicons",
-	--		"MunifTanjim/nui.nvim",
-	--		"3rd/image.nvim",
-	--	},
-	--},
 	{
 		"nvim-tree/nvim-tree.lua",
 		dependencies = {
@@ -360,10 +353,10 @@ rt.setup({
 	},
 })
 require("typescript-tools").setup({})
-local ng = require("ng")
+require("ng")
 require("neodev").setup({})
 -- TODO: this requires extensive setup...
-local jdtls = require("jdtls")
+require("jdtls")
 require("crates").setup({})
 ------------------------------------------
 require("mason").setup({})
@@ -458,6 +451,7 @@ cmp.setup({
 		end,
 	},
 })
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
